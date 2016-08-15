@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   root "creatures#index"
   get "/creatures", to: "creatures#index", as: "creatures"
-  get "/creatures/:id", to: "creatures#show", as: "creature"
   get "/creatures/new", to: "creatures#new", as: "new_creature"
+  get "/creatures/:id", to: "creatures#show", as: "creature"
   post "/creatures", to: "creatures#create"
   get "/creature/:id/edit", to: "creature#edit", as: "edit_creature"
   patch "/creature/:id", to: "creature#update"
