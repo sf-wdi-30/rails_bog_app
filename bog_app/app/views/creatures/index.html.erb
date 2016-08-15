@@ -1,0 +1,30 @@
+
+
+<%= form_tag(creatures_path, :method => "get", id: "search-form") do %>
+<%= text_field_tag :search, params[:search], placeholder: "Search Posts" %>
+<%= submit_tag "Search" %>
+<% end %>
+
+<br>
+<br>
+
+
+<% if @creatures.present? %>
+  <% @creatures.each do |creature| %>
+    <% if creature.avatar.file? %>
+      <%= image_tag creature.avatar.url(:medium) %>
+    <% else %>
+      No attachment available!
+    <% end %>
+      <h2> <%=creature.name %>
+      <h3> <%=creature.description %>
+      <br>
+      <br>
+      <%= link_to "Show", creature_path(creature) %>
+      <%= link_to "Edit", edit_creature_path(creature) %>
+      <br>
+      <br>
+    <% end %>
+<% else %>
+  <p>There are no posts containing the term(s) <%= params[:search] %>.</p>
+<% end %>

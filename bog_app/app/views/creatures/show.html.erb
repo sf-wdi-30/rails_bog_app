@@ -1,0 +1,4 @@
+<%= image_tag @creature.avatar.url(:medium) %>
+<h2> <%= @creature.name %> </h2>
+<h3> <%= @creature.description %> </h3>
+<%= button_to "DELETE THIS MONSTER, YOU MONSTER", @creature, method: :delete %>
