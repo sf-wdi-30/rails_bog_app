@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
-  root "creatures#index"
-  get "/creatures", to: "creatures#index", as: "creatures"
-  get "/creatures/new", to: "creatures#new", as: "new_creature"
-  get "/creatures/:id", to: "creatures#show", as: "creature"
-  post "/creatures", to: "creatures#create"
-  get "/creature/:id/edit", to: "creature#edit", as: "edit_creature"
-  patch "/creature/:id", to: "creature#update"
-  delete "/creature/:id", to: "creature#destroy"
+  resources :creatures
+  # root "creatures#index"
+  # get "/creatures", to: "creatures#index", as: "creatures"
+  # get "/creatures/new", to: "creatures#new", as: "new_creature"
+  # get "/creatures/:id", to: "creatures#show", as: "creature"
+  # post "/creatures", to: "creatures#create"
+  # get "/creatures/:id/edit", to: "creatures#edit", as: "edit_creature"
+  # patch "/creatures/:id", to: "creatures#update"
+  # delete "/creatures/:id", to: "creatures#destroy"
 end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
