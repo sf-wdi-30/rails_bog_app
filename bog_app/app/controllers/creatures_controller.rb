@@ -1,7 +1,13 @@
 class CreaturesController < ApplicationController
+
+
   def index
     @creatures = Creature.all
-    render :index
+    # if params[:search]
+    #   @Creatures = Creature.search(params[:search]).order("created_at DESC")
+    # else
+    #   @Creatures = Creature.all.order('created_at DESC')
+    # end
   end
   def show
     @creature = Creature.find_by_id(params[:id])
@@ -36,6 +42,6 @@ class CreaturesController < ApplicationController
   private
 
   def creature_params
-    params.require(:creature).permit(:name, :description)
+    params.require(:creature).permit(:name, :description, :avatar)
   end
 end
